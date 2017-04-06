@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ZefanQiu/koa-yenoro.git"
+    "url": "git+https://github.com/IamMonkey/koa-yenoro.git"
   },
   "keywords": [
     "nodejs",
@@ -16,10 +16,10 @@
     "router",
     "yenoro"
   ],
-  "author": "zefanqiu",
+  "author": "IamMonkey",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ZefanQiu/koa-yenoro/issues"
+    "url": "https://github.com/IamMonkey/koa-yenoro/issues"
   },
-  "homepage": "https://github.com/ZefanQiu/koa-yenoro#readme"
+  "homepage": "https://github.com/IamMonkey/koa-yenoro#readme"
 }
