@@ -1,0 +1,25 @@
+{
+  "name": "koa-yenoro",
+  "version": "0.0.1",
+  "description": "A node service router url tools which make url by file path.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZefanQiu/koa-yenoro.git"
+  },
+  "keywords": [
+    "nodejs",
+    "koa",
+    "router",
+    "yenoro"
+  ],
+  "author": "zefanqiu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ZefanQiu/koa-yenoro/issues"
+  },
+  "homepage": "https://github.com/ZefanQiu/koa-yenoro#readme"
+}
