@@ -1,6 +1,6 @@
 {
   "name": "koa-yenoro",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A node service router url tools which make url by file path.",
   "main": "index.js",
   "scripts": {
