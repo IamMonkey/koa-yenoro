@@ -2,18 +2,6 @@
  * Created by fan on 2016/6/21.
  */
 
-
-//var routesDir=null;
-
-//路由设置
-
-//function makeRouter(dir,callback) {
-//    routesDir=dir.replace(/\\/g, '/');
-//    yenoroBreadth(routesDir,function (url,jsPath) {
-//        callback(url,jsPath);
-//    });
-//}
-
 const path=require('path');
 const fs=require('fs');
 
