@@ -8,5 +8,5 @@ yenoro.makeRouter((profile,jspath)=>{
 const yenoro1 = new Yenoro({mapType:'depth'});
 yenoro1.makeRouter((profile,jspath)=>{
     console.log(profile);
-    console.log(jspath)
+    console.log(jspath);
 });

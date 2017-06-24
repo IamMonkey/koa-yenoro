@@ -17,26 +17,29 @@ module.exports = class yenoro{
             mapType:'breadth', breadth or depth
             path:,must be a absoute path
             filter:['name or path'],
-            extname:'will be load'//default is '.js'
+            extname:'will be parse'//default is '.js'
         }
     */
     constructor({
         mapType=BREADTH,
         parsePath=__dirname,
-        filter=[],
-        extname=['.js']
     }={}) {
-        const config={mapType,parsePath,filter,extname};
-        this.config=config;
+        this.config={mapType,parsePath};
     }
     makeRouter(callback){
-        const {mapType,parsePath,filter,extname}=this.config;
-        if(mapType.toLocaleLowerCase()===BREADTH){
-            tools.breadth(parsePath,filter,extname,callback);
-        }else if(mapType.toLocaleLowerCase()===DEPTH){
-            tools.depth(parsePath,filter,extname,callback);
+        if(typeof callback==='function'){
+            const {mapType,parsePath}=this.config;
+            if(mapType.toLocaleLowerCase()===BREADTH){
+                tools.breadth(parsePath,callback);
+            }else if(mapType.toLocaleLowerCase()===DEPTH){
+                tools.depth(parsePath,callback);
+            }else{
+                console.error('mapType mast be breadth or depth');
+                console.error('node we choice breadth');
+                tools.breadth(parsePath,callback);
+            }
+        }else{
+            console.error('makeRouter need a callback');
         }
     }
-    
-    
 }

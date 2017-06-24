@@ -6,9 +6,9 @@ const path=require('path');
 const fs=require('fs');
 
 function pathParse(initdir,pathname){
-    return pathname.replace(/\\/g, '/')
-                    .replace(/.js/,'')
-                    .replace(/\/index/,'')
+    return  pathname.replace(/\\/g, '/')
+                    .replace(/.js/g,'')
+                    .replace(/\/index/g,'')
                     .replace(initdir+'/','/')
                     .replace(initdir,'/')
                     .replace(/\{\+\}/g,'*')
@@ -16,12 +16,12 @@ function pathParse(initdir,pathname){
                     .replace(/\{\-\}/g,'/')
                     .replace(/{\.\.}/g,':');
 }
-//深度优先 1.0
-function yenoroDepth(dir,filter,extname,callback,initdir=dir) {
+//depth 1.0
+function yenoroDepth(dir,callback,initdir=dir) {
     fs.readdirSync(dir).forEach(function (file) {
         var pathname = path.join(dir, file).replace(/\\/g, '/');
         if (fs.statSync(pathname).isDirectory()) {
-            yenoroDepth(pathname,filter,extname,callback,initdir);
+            yenoroDepth(pathname,callback,initdir);
         } else {
             if(path.extname(pathname)=='.js'){
                 var rname=pathParse(initdir,pathname);
@@ -31,15 +31,13 @@ function yenoroDepth(dir,filter,extname,callback,initdir=dir) {
     });
 }
 
-//广度优先 2.0
-function yenoroBreadth(dir,filter,extname,callback,initdir=dir) {
+//breadth 2.0
+function yenoroBreadth(dir,callback,initdir=dir) {
     var d = [],f = [],index = {};
     fs.readdirSync(dir).forEach(function (file) {
         var pathname = path.join(dir, file).replace(/\\/g, '/');
         if (fs.statSync(pathname).isDirectory()) {
-            if (file.toString() != 'other') {
-                d.push(pathname);
-            }
+            d.push(pathname);
         } else {
             var rname=pathParse(initdir,pathname);
             if(path.extname(pathname)=='.js'){
@@ -60,7 +58,7 @@ function yenoroBreadth(dir,filter,extname,callback,initdir=dir) {
         callback(obj.rname,obj.pathname);
     }
     for (var i = 0; i < d.length; i++) {
-        yenoroBreadth(d[i],filter,extname,callback,initdir);
+        yenoroBreadth(d[i],callback,initdir);
     }
 }
 exports.depth=yenoroDepth;
